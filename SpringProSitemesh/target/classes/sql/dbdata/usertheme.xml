@@ -1,0 +1,17 @@
+<?xml version="1.0"?>
+<ROWSET>
+ <ROW>
+  <NUM>1</NUM>
+  <USERNUM>7</USERNUM>
+  <GENRE>알앤비,재즈,</GENRE>
+  <FAVORTHEME>운전할때,운동할때,밤/새벽</FAVORTHEME>
+  <REGDATE>2015-12-18T00:00:00.000</REGDATE>
+ </ROW>
+ <ROW>
+  <NUM>2</NUM>
+  <USERNUM>1</USERNUM>
+  <GENRE>발라드,알앤비,재즈,</GENRE>
+  <FAVORTHEME>잔잔한,신나는,달달한,클럽/파티,</FAVORTHEME>
+  <REGDATE>2015-12-20T00:00:00.000</REGDATE>
+ </ROW>
+</ROWSET>

@@ -1,0 +1,158 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE
+	mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+	"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+	
+	
+	<mapper namespace="mapperSong">
+	<!-- 
+		1. SQL문 세미콜론 불가능
+		2. #{} 안의 멤버는 소문자 입력
+		3. getter가 필요
+	 -->
+	
+	<select id="songList" resultType="songBean">
+		select * from song order by num	asc
+	</select>
+	
+	<select id="realTimeList" resultType="songBean">
+		select * from song order by num	desc
+	</select>
+	
+	
+	<select id="albumList" resultType="albumBean">
+		select * from album order by num asc
+	</select>	
+	<!-- 테마 분류 -->
+	<select id="themeStyle" resultType="songBean">
+		select * from song order by num asc
+	</select>	
+	
+	
+	<!--  앨범정보 -->
+	<select id="albumInfo" parameterType="java.lang.String" resultType="albumBean">
+		select * from album where albumName=#{name}
+	</select>
+	
+	<select id="albumInSong" parameterType="java.lang.String" resultType="songBean">
+		select * from song where albumName=#{name}
+	</select>
+	
+	
+	<!-- 아티스트 정보 -->
+	<select id="artistInfo" parameterType="java.lang.String" resultType="artistBean">
+		select * from artist where artistName=#{name}
+	</select>
+	
+	<select id="artistSong" parameterType="java.lang.String" resultType="songBean">
+		select * from song where artistName=#{name}
+	</select>
+	
+	
+	<!-- 가사 정보 -->
+	<select id="lyricsInfo" parameterType="java.lang.Integer" resultType="songBean">
+		select * from song where num=#{num}
+	</select>
+		
+		<!-- 테마 분류  -->
+	<select id="list01Theme" resultType="songBean">
+		select * from song where ThemeTag like '%01%' 
+	</select>
+	<select id="list02Theme" resultType="songBean">
+		select * from song where ThemeTag like '%02%'
+	</select>
+	<select id="list03Theme" resultType="songBean">
+		select * from song where ThemeTag like '%03%'
+	</select>
+	<select id="list04Theme" resultType="songBean">
+		select * from song where ThemeTag like '%04%'
+	</select>
+	<select id="list05Theme" resultType="songBean">
+		select * from song where ThemeTag like '%05%'
+	</select>
+	<select id="list06Theme" resultType="songBean">
+		select * from song where ThemeTag like '%06%'
+	</select>
+	<select id="list07Theme" resultType="songBean">
+		select * from song where ThemeTag like '%07%'
+	</select>
+ 	
+ 	<!-- 테마 분류 -->
+ 	<!-- 2015-12-21 매퍼 추가분 -->
+ 	<select id="themeSelectList" resultType="themeList">
+ 		select * from theme order by num
+ 	</select>
+ 	 <select id="selectList" parameterType="themeList" resultType="songBean">
+ 		select * from song where ThemeTag like '%'||#{theme}||'%'
+ 	</select>
+ 	
+ 	<!-- 장르 분류 -->
+ 	<!-- 2015-12-30 매퍼 추가분 -->
+ 	<select id="genreSelectList" resultType="genreList">
+ 		select * from genre order by num
+ 	</select>
+ 	 <select id="selectListG" parameterType="genreList" resultType="songBean">
+ 		select * from song where musicStyle like '%'||#{genre}||'%'
+ 	</select>
+ 	
+ 	
+	
+	<!-- 재생  -->
+	<select id="choiceList" parameterType="java.lang.Integer" resultType="songBean">
+		select * from song where num=#{num}
+	</select>
+	
+	<!-- 선택재생  -->
+	<select id="checkList" parameterType="java.lang.Integer" resultType="songBean">
+		select * from song where num=#{num}
+	</select>
+	
+	<!-- 추천하기  -->
+	<update id="recommend" parameterType="java.lang.Integer" >
+		update song set recomCount=recomCount+1 where num=#{num}
+	</update>
+	
+	
+	
+	<!-- 앨범 평점,추천  -->
+	<update id="pointCount" parameterType="java.lang.Integer" >
+		update album set recomCount=recomCount+1 where num=#{num}
+	</update>
+	
+	
+	<update id="ratingCount" parameterType="albumBean" >
+		update album set totalCount=totalCount+#{avgCount} where num=#{num}
+	</update>
+	
+	
+	<update id="avgCount" parameterType="java.lang.Integer" >
+		update album set avgCount=totalCount/recomCount where num=#{num}
+	</update>
+	
+	<!-- 코멘트 기능 추가 2015.12.31 -->
+	<select id="commentSelectList" parameterType="int" resultType="albumCommentBean">
+		select * from
+		albumComment
+		where 
+		albumNum=#{albumNum}
+		order by num desc
+	</select>
+	<insert id="commentInsertOne" parameterType="albumCommentBean">
+		insert into
+		albumComment
+		values(
+		albumComment_seq.nextval,
+		#{albumNum},
+		#{writer},
+		#{content},
+		sysdate
+		)
+	</insert>
+	<delete id="commentDeleteOne" parameterType="int">
+		delete from
+		albumComment
+		where
+		num=#{num}
+	</delete>
+	</mapper>

@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE
+	mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+	"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+	
+	
+	<mapper namespace="mapperCustomer">
+		<!-- FAQ 전체 리스트 -->
+		<select id="faqList" resultType="faq">
+			select * from FAQ order by num desc
+		</select>	
+		
+		<!-- FAQ 계정관련 리스트 -->
+		<select id="userFAQ" resultType="faq">
+			select * from FAQ where category = '회원가입/변경/탈퇴' order by num desc
+		</select>	
+		
+		<!-- FAQ 결제관련 리스트 -->
+		<select id="payFAQ" resultType="faq">
+			select * from FAQ where category = '결제/환불' order by num desc
+		</select>	
+		
+		<!-- FAQ 재생관련 리스트 -->
+		<select id="musicFAQ" resultType="faq">
+			select * from FAQ where category = '음악재생' order by num desc
+		</select>	
+		
+		<!-- 공지 전체 리스트 -->
+		<select id="infoList" resultType="info">
+			select * from INFO order by num desc
+		</select>
+		
+		<!-- 1:1 문의글 제한 -->
+		<select id="countQuestion" parameterType="userInfo" resultType="userQuestion">
+			select * from userQuestion where writer = #{id} and answer = 0 order by num desc
+		</select>
+		
+		
+		<!-- 1:1 문의하기 -->
+		<insert id="insertQuestion" parameterType="userQuestion">
+			insert into userQuestion values(
+			 userQuestion_seq.nextval, 0, #{writer}, #{category}, #{title}, #{content}, sysdate
+			)
+		</insert>
+		
+		<!-- 내 문의 불러오기 -->
+		<select id="myQuestion" parameterType="userInfo" resultType="userQuestion">
+			select * from userQuestion where writer = #{id} order by num desc
+		</select>
+	</mapper>

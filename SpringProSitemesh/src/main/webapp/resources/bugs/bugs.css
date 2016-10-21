@@ -1,0 +1,327 @@
+@charset "UTF-8";
+
+@font-face {
+  font-family: 'NanumBarunGothic';
+  font-style: normal;
+  font-weight: 400;
+  src: url(http://www.bugs.co.kr/fonts/NanumBarunGothic.eot);/* IE9 Compat Modes */
+  src: url(http://www.bugs.co.kr/fonts/NanumBarunGothic.eot?#iefix) format('embedded-opentype'),/* IE6-IE8 */
+				url(http://www.bugs.co.kr/fonts/NanumBarunGothic.woff2) format('woff2'),/* Super Modern Browsers */
+				url(http://www.bugs.co.kr/fonts/NanumBarunGothic.woff) format('woff'),/* Modern Browsers */
+				url(http://www.bugs.co.kr/fonts/NanumBarunGothic.ttf) format('truetype');/* Safari, Android, iOS */
+}
+
+/* Common Style */
+* {margin:0;padding:0}
+/* set html5 elements to block */
+article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, section {display:block}
+html,body,div,span,object,iframe,h1,h2,h3,h4,h5,h6,p,blockquote,pre,abbr,address,cite,code,del,dfn,em,img,ins,kbd,q,samp,small,strong,sub,sup,var,b,i,dl,dt,dd,ol,ul,li,fieldset,form,label,legend,table,caption,tbody,tfoot,thead,tr,th,td,article,aside,canvas,details,figcaption,figure,footer,header,hgroup,menu,nav,section,summary,time,mark,audio,video {margin:0;padding:0;border:0;outline:0;font-size:100%;vertical-align:baseline;background:transparent}
+body {font-size:13px;font-weight:400;font-family:나눔바른고딕, 'NanumBarunGothic', 나눔고딕, 'NanumGothic', '돋움', Dotum, 'Apple SD Gothic Neo', sans-serif;color:#3a3635}
+input, button, textarea, select {font-family:나눔바른고딕, 'NanumBarunGothic', 나눔고딕, 'NanumGothic', '돋움', Dotum, 'Apple SD Gothic Neo', sans-serif;vertical-align:middle}
+input[type=text]::-ms-clear {display: none !important;height:0;width:0}
+header, h1 {font-size:100%}
+html, body {height:100%}
+caption,legend {position:absolute;top:0;left:0;width:0;height:0;font-size:0;font-size:0;line-height:0;overflow:hidden;visibility:hidden}
+img {border:0px none;vertical-align:top;/*width:100%;*/ }
+select, input {vertical-align:middle}
+textarea:focus, input[type=text]:focus {outline:0}
+hr {display:none;border:0 none}
+ol, ul, ul li {list-style:none}
+em {font-style:normal}
+menu li {list-style:none}
+table {border-collapse:collapse;border-spacing:0}
+td {word-break:break-all;word-wrap:break-word}
+label {cursor:pointer}
+a {margin:0;padding:0;color:#3a3635;vertical-align:baseline;background:transparent}
+button {cursor:pointer;border:0px none;background-color:transparent}
+
+a:link, a:visited, a:active, a:focus {text-decoration:none}
+a:hover {text-decoration:underline}
+select {
+	-webkit-appearance: none;
+	-moz-appearance: none;
+	-ms-appearance: none;
+	-o-appearance: none;
+	appearance: none;
+
+	-webkit-box-sizing:border-box;
+	-moz-box-sizing:border-box;
+	box-sizing:border-box;
+	min-width:80px;padding:8px 5px 8px 10px;font-size:14px;color:#757271;
+
+	-webkit-border-radius:3px;
+	-moz-border-radius:3px;
+	border-radius:3px;
+	border:1px solid #c4c2c2;
+	background:#fff url(http://file.bugsm.co.kr/wbugs//common/bu_select.png) 100% 50% no-repeat;
+}
+	.msie9 select {background-image:none}
+	.msie8 select {background-image:none}
+	select::-ms-expand {display: none;}
+
+.blind {position:absolute;top:0;left:0;visibility:hidden;overflow:hidden;height:0;width:0;font-size:0;line-height:0}
+
+.sel {display:inline-block;height:19px;padding:6px 4px 7px 8px;line-height:1.4;vertical-align:middle;background-color:#fff}
+.sel select {width:100%;height:19px;*height:100%;margin:0;padding:0;font-size:13px;line-height:100%;border:0;background:#fff url(http://file.bugsm.co.kr/wbugs/common/bu_select.png) 100% 50% no-repeat}
+
+.content {margin:0 auto;width:770px;}
+.tbl caption {display:none;}
+
+.search {position:relative;height:87px;padding:23px 0 0 35px;margin-bottom:50px;background-color:#99a0a4}
+.search label {display:inline-block;height:32px;margin-right:7px;font-size:15px;color:#fff;line-height:2.1}
+.search .sel {width:176px;border:1px solid #99a0a4;}
+.search .inp {width:391px !important;height:32px;margin-left:3px;margin-right:3px;padding:0 0 0 20px;font-size:13px;color:#666;line-height:1.4;border:1px solid #99a0a4;border-radius:0;background:#fff}
+.search .btns {display:inline-block;width:83px;height:32px;margin:1px 1px 0 0;color:#fff;vertical-align:top;background-color:#434648}
+.search dl {overflow:hidden;max-width:400px;margin:12px 0 0 200px;line-height:20px;*zoom:1}
+.search dl:after {content:'';display:block;clear:both;height:0}
+.search dt {float:left;position:relative;margin:0 8px 0 0;padding-right:11px;font-size:13px;color:#fff;line-height:20px;*line-height:25px;vertical-align:top;background:url(http://file.bugsm.co.kr/wbugs/helpdesk/bu_barSearch.png) 100% 5px no-repeat;*background-position: 100% 8px;}
+.search dt .bu {position:absolute;top:5px;right:0;height:9px;width:1px;background-color:#b8bdbf}
+.search dd {display:inline-block;float:left;color:#fff;line-height:20px;vertical-align:top;*margin-top:3px;}
+.search dd a {display:inline-block;font-size:13px;color:#fff;vertical-align:top;}
+.search .bn button {display:inline-block;width:83px;height:32px;text-align:center;font-size:13px;color:#fff;line-height:32px;background-color:#434648;}
+.search .bn button:hover {background-color:#2e3031}
+.sch_result {margin-bottom:20px;font-size:14px;color:#3a3635}
+.sch_result em {font-weight:bold;color:#ff3d33}
+.search .btn_search,.search .btn_search button {width:78px}
+
+.tab_category {position:relative;width:770;height:127px;overflow:hidden;background:url(http://file.bugsm.co.kr/wbugs/helpdesk/bg_tabCategory.png) 0 0 no-repeat;}
+.tab_category li {float:left;width:110px;}
+.tab_category li a {display:block;width:100%;height:57px;line-height:55px;color:#757271;font-size:14x;text-align:center;background:url(http://file.bugsm.co.kr/wbugs/helpdesk/bg_tabCategoryCell.png) 0 -100px no-repeat;}
+.tab_category li a:hover {color:#3a3635;text-decoration:none !important}
+.tab_category li.on {}
+.tab_category li.on a {color:#3a3635;background:url(http://file.bugsm.co.kr/wbugs/helpdesk/bg_tabCategoryCell.png) 0 0 no-repeat;}
+/*
+.tab_category {position:relative;padding-left:1px;width:100%;height:127px;overflow:hidden;background:url(http://file.bugsm.co.kr/wbugs/helpdesk/bg_tabCategory.png) 100% 0 no-repeat;}
+.tab_category li {float:left;width:109px;margin-left:-1px;border:1px solid #d9d9d9;background-color:#fafafc;}
+.tab_category li a {display:block;width:100%;height:55px;line-height:55px;color:#757271;font-size:14x;text-align:center;}
+.tab_category li a:hover {color:#3a3635;text-decoration:none !important}
+.tab_category li.on {border-bottom:1px solid #fff;background-color:#fff;}
+.tab_category li.on a {color:#3a3635;}
+*/
+.tab_category li li {display:none}
+.tab_category li.on li {display:block}
+.theme_a .tab_category li.on .sub_catewrap,.theme_b .tab_category li.on .sub_catewrap{display:block}
+.sub_catewrap {display:none;clear:both;position:absolute;top:83px;left:0;width:100%;z-index:100;}
+.sub_category {margin-left:-2px;overflow:hidden;zoom:1}
+.sub_category li {float:left;width:auto;border:none;padding:0 14px 0 12px;white-space:nowrap;background:url(http://file.bugsm.co.kr/wbugs/helpdesk/bu_barSubCategory.png) 0 3px no-repeat}
+.sub_category li a {display:inline-block;line-height:20px;height:auto;background:none !important;}
+.sub_category li a:hover {text-decoration:underline !important;}
+.sub_category li.on {background-color:none !important}
+.sub_category li.on a {color:#ff3d33;font-weight:bold;}
+
+.faqlist caption {display:none}
+.faqlist table {width:100%;border:0;border-top:2px solid #4c4c4c;}
+.faqlist thead th {height:38px;font-size:11px;line-height:38px;text-align:left;text-indent:25px;border-bottom:1px solid #efefef;}
+.faqlist tbody td {padding-left:25px;color:#757271;font-size:12px;vertical-align:middle;border-bottom:1px solid #efefef;background-color:#fff;}
+.faqlist .faqTitle {display:block;margin:22px 0 18px;color:#757271;line-height:135%;}
+.faqlist .answer .inner {margin:23px 0 19px;color:#757271;line-height:21px;}
+.faqlist .answer.hide {display:none;}
+
+.txt_result {padding:86px 0;font-size:13px;text-align:center;line-height:1.4;color:#757271}
+.txt_result strong {display:inline-block;font-weight:normal;margin-bottom:24px;color:#3a3635}
+.txt_result strong + p {line-height:18px;color:#999}
+.txt_result p {font-size:12px;}
+.txt_result a {text-decoration:underline}
+
+.bn_wrap {padding:20px 0;text-align:center;}
+.bn_wrap .bn {display:inline-block;}
+.bn_wrap .bn a {display:inline-block;width:154px;height:40px;line-height:42px;font-size:13px;color:#3a3635;text-align:center;vertical-align:middle;border:1px solid #d9d9d9;background-color:#fff;}
+.bn_wrap .bn a:hover {text-decoration:none;background-color:#f2f3f7}
+
+.paginate {padding:20px 0 40px;text-align:center;}
+.paginate strong ,
+.paginate a {display:inline-block;height:26px;margin:0 3px 0 4px;padding:0 10px 0 9px;line-height:28px;border:1px solid #dad9d9;vertical-align:text-top;}
+.paginate strong {color:#000;}
+.paginate a {color:#757271; text-decoration:none;}
+.paginate a .blind {position:relative;visibility:visible;overflow:hidden;height:auto;width:auto;font-size:13px;line-height:26px}
+.paginate .prev {padding-right:14px;padding-left:21px;background-image:url(http://file.bugsm.co.kr/wbugs/common/btns/btn_arrow_left01.png);background-position:10px 9px;background-repeat:no-repeat;}
+.paginate .next {padding-right:21px;padding-left:14px;background-image:url(http://file.bugsm.co.kr/wbugs/common/btns/btn_arrow_right01.png);background-position:43px 9px;background-repeat:no-repeat;}
+.paginate .prev_end ,
+.paginate .next_end {display:none;}
+
+.help {color:#757271;}
+.help a {display:inline-block;margin:0 4px;color:#3a3635;text-decoration:underline;}
+.help .mk_ex {width:6px;height:6px;margin:0 4px 3px 6px;background-position:0 0;}
+
+.ess.mt {margin-bottom:11px;font-size:12px;text-align:right;}
+.ess.mt em {font-weight:bold;}
+
+.tbl.inplist {border-top:2px solid #4c4c4c;}
+.tbl table {width:100%;border:0;}
+.tbl table th {width:176px !important;font-size:12px;color:#666;text-align:left;border-bottom:1px solid #ebebea;background-color:#f8f9fb;vertical-align:top;}
+.tbl table th .thin_ic {display:inline-block;margin:32px 0 0 20px;}
+.tbl table td {padding:20px 30px;color:#3a3635;border-bottom:1px solid #ebebea;background-color:#fff;}
+.inplist table td .sel {border:1px solid #b3b3b3;}
+.inplist table td .sel select {color:#3a3635}
+.inplist table td .sel.ml {margin-left:4px;}
+.inplist table td #categoryArea .sel {width:240px !important;}
+.inplist table td #categoryArea .sel:first-child {margin-right:2px;}
+.inplist table td .inp {height:32px;line-height:32px;color:#757271;font-size:13px;text-indent:12px;border:1px solid #d4d4d4;}
+.inplist table td .mid {font-size:12px;color:#999;}
+.inplist table td .inp#inp_email ,
+.inplist table td .inp#emailTail {width:145px !important;}
+.inplist table td .pr .inp {width:495px !important}
+.inplist table td .pr textarea.inp {height:106px;width:471px !important;padding:8px 12px;line-height:135%;text-indent:0;}
+.inplist table td .pr .rei {padding-top:3px;font-size:12px;}
+.inplist table td .alram_txt {margin-top:-15px;padding-top:19px;font-size:13px;color:#3f3f3f}
+.inplist table td .inp_phone {margin:10px 0 16px;padding:0 0}
+.inplist table td .inp_phone label {display:inline-block;margin-right:14px;font-size:12px;}
+.inplist table td .inp_phone .chk input {margin:-2px 5px 0 0;vertical-align:middle}
+.inplist table td .inp_phone input[type='text'] {letter-spacing:1px}
+.inplist table td .mid_desh {color:#999;font-size:12px;}
+
+.inplist .preview {width:467px;margin-top:19px;padding:10px 14px;color:#666;font-size:13px;line-height:20px;border:1px solid #f7f7f7;background:#fdfcfc;}
+.inplist .preview dl {display:inline-block;*display:inline;*zoom:1;max-width:100%}
+.inplist .preview dt {margin-bottom:7px;font-weight:bold;}
+.inplist .preview dd {position:relative;overflow:hidden;margin-top:2px;padding-left:10px;padding-right:75px;white-space:nowrap;text-overflow:ellipsis}
+.inplist .preview .ba r {display:inline-block;*display:inline;*zoom:1;width:25px;color:#bbb;text-align:center}
+.inplist .preview .btn_reply {position:absolute;right:0;top:0;display:block;width:60px;height:20px;background:#bbb;color:#fff;font-size:12px;text-align:center;line-height:22px;text-decoration:none}
+ 
+.inplist table td .inp_file {padding:0}
+.inplist table td .inp_file .bn {position:relative;}
+.inplist table td .inp_file .bn em ,
+.inplist table td .inp_file .bn button {position:relative;display:inline-block;width:auto;height:32px;margin-left:3px;padding:0 16px;vertical-align:middle;cursor:pointer;border:1px solid #d9d9d9;background:#FFF;}
+.inplist table td .inp_file .bn * {line-height:32px;color:#3a3635;font-size:12px;cursor:pointer !important;}
+.inplist table td .inp_file .bn input:hover {background-color:#f2f3f7}
+.inplist table td .inp_file .bn .btnAddFile {color:#fff;border:none;height:34px;background:#ff5b51;}
+.inplist table td .inp_file .bn .btnAddFile:hover {background:#ee5047;}
+.inplist table td .inp_file .bn input {position:absolute;top:-7px;left:6px;height:32px;width:76px;opacity:0;filter: alpha(opacity=0);cursor:pointer;}
+.inplist table td .inp_file .contents {overflow:hidden;display:inline-block;width:269px;height:32px;padding:0 12px;line-height:32px;vertical-align:middle;white-space:nowrap;text-overflow:ellipsis;border:1px solid #d4d4d4;color:#565961}
+.inplist table td .inplist .sel_file {background:blue;overflow:hidden;display:inline-block;width:379px;height:32px;padding:0 15px;line-height:32px;vertical-align:middle;;white-space:nowrap;text-overflow:ellipsis;border:1px solid #b3b3b3}
+.inplist table td .sel_file button {overflow:hidden;display:inline-block;width:59px;height:19px;line-height:100px;vertical-align:middle;}
+.inplist table td .sel_file span {font-size:13px;color:#757271;vertical-align:top}
+
+.filelist {overflow:hidden;width:433px;height:auto;margin-top:10px;padding:0 0 7px 5px;border:1px solid #b3b3b3;}
+.filelist li {float:left;margin:5px 0 0 10px;font-size:12px;color:#999;word-break:break-word;}
+.filelist li .bn_x {overflow:hidden;width:18px;height:17px;margin:2px 0 0 5px;line-height:200px;background:url(http://file.bugsm.co.kr/wbugs/helpdesk/btn_deleteFile.png) 0 0 no-repeat}
+
+.inplist table td .caution_tb {position:relative;margin-top:13px;padding-left:17px;line-height:135%;}
+.inplist table td .caution_tb .mk_ex {position:absolute;top:1px;left:0;}
+
+.inplist .last td {padding:14px 0 0 0;border-bottom:none;}
+.inplist .last .caution_tb {position:relative;margin-bottom:22px;padding-left:17px;line-height:135%;}
+.inplist .last .caution_tb .mk_ex {position:absolute;top:1px;left:0;}
+.inplist .last .caution_tb .chk {display:inline-block;margin-right:4px;margin-left:-17px;margin-bottom:2px;vertical-align:middle;}
+
+.bn_wrap.v2 {text-align:center;margin-bottom:50px;}
+.bn_wrap.v2 .bn {display:inline-block;}
+.bn_wrap.v2 .bn button , 
+.bn_wrap.v2 .bn a {display:inline-block;width:154px;height:40px;margin:0 2px;line-height:42px;font-size:13px;vertical-align:middle;}
+.bn_wrap.v2 .bn.bn_rd button ,
+.bn_wrap.v2 .bn.bn_rd a {color:#fff;height:42px;line-height:42px;border:none;background-color:#ff5b51;box-sizing:content-box}
+.bn_wrap.v2 .bn.bn_rd button:hover ,
+.bn_wrap.v2 .bn.bn_rd a:hover {text-decoration:none;background-color:#ee5047;box-sizing:content-box}
+.bn_wrap.v2 .bn.bn_bk a {color:#3a3635;border:1px solid #d9d9d9;background-color:#fff;}
+.bn_wrap.v2 .bn.bn_bk a:hover {text-decoration:none;background-color:#f2f3f7}
+
+.help .mk_ex ,
+.ess.mt .bl_ess ,
+.inplist table th .thin_ic .bl_ess,
+.inplist .caution_tb .mk_ex {display:inline-block;vertical-align:middle;background-image:url(http://file.bugsm.co.kr/wbugs/helpdesk/sprite_helpdesk_bullet.png) ;background-repeat:no-repeat;*zoom:1;*display:inline;}
+.ess.mt .bl_ess ,
+.inplist table th .thin_ic .bl_ess {width:6px;height:6px;margin:0 4px 3px 0;font-size:0;background-position:0 -20px;}
+
+.caution_tb {color:#757271;}
+.caution_tb .mk_ex {display:inline-block;width:13px;height:13px;margin:0 4px 3px 0;font-size:0;vertical-align:middle;background:url(http://file.bugsm.co.kr/wbugs/helpdesk/sprite_helpdesk_bullet.png) 0 -40px no-repeat}
+
+.txt_pcess {padding-top:20px;font-size:14px;line-height:1.4;color:#3a3635;}
+.txt_pcess em {color:#2a303a}
+
+.step_pcess {margin:27px 0 40px;height:94px;background:url(http://file.bugsm.co.kr/wbugs/helpdesk/i_myInquiryStep.png) no-repeat;*zoom:1}
+.step_pcess:after {display:block;clear:both;height:0;content:''}
+.step_pcess li {position:relative;float:left;width:154px;height:94px;margin-bottom:0;color:#999;font-size:15px;font-weight:600;text-align:center}
+.step_pcess_v2 li {width:108px;margin-right:25px;padding-left:43px;background-position:0 -318px}
+.step_pcess_v2 li:first-child {padding-left:15px;background-position:-28px -318px}
+.step_pcess_v2 li.on:first-child {background-position:-273px -318px}
+.step_pcess_v2 li strong {text-indent:14px}
+.step_pcess li a,.step_pcess li span,.step_pcess_v2 li span {overflow:hidden;display:block;width:154px;height:94px;line-height:9999px}
+.step_pcess li span {padding-top:51px}
+.step_pcess li a:hover,.step_pcess li.on a {color:#2a303a;text-decoration:underline}
+.step_pcess li a:hover strong,.step_pcess li.on a strong {text-decoration:none}
+.step_pcess li strong {position:absolute;left:-9999px}
+.step_pcess .dn_mg {padding-top:58px}
+.step_pcess_v2 .dn_mg {padding-top:64px}
+.step_pcess li p {display:none;position:absolute;top:84px;left:50%;width:100px;margin-left:-60px;padding:13px 10px 10px;background:#ff5546;color:#fff;font-size:12px;font-weight:normal;text-align:center;z-index:200}
+.step_pcess li.on p,.step_pcess li:hover p {display:block}
+.step_pcess li .ic_arrow {position:absolute;right:54px;top:-6px;width:11px;height:6px;background:url(http://file.bugsm.co.kr/wbugs/helpdesk/ic_myInquiryArrow.png) no-repeat 50% 0}
+.step_pcess_v2 .on {background-position:-245px -318px}
+.step_pcess_v2 .on span,.step_pcess_v2 .on strong {color:#fff}
+
+.bl_desh {margin-top:55px;padding-top:20px;border-top:1px solid #ccc}
+.bl_desh li {margin-left:-6px;color:#999;font-size:12px;line-height:1.6;letter-spacing:0}
+.bl_desh li span {margin:0 8px}
+
+.qnalist table {width:100%;margin-top:20px;border-top:2px solid #4c4c4c;}
+.qnalist table caption {display:none;}
+.qnalist thead th {height:38px;font-size:11px;line-height:38px;border-bottom:1px solid #efefef;}
+.qnalist tbody td {color:#757271;height:45px;font-size:12px;vertical-align:middle;border-bottom:1px solid #efefef;background-color:#fff;}
+.qnalist tbody td a {position:relative;display:inline-block;margin-left:22px;font-size:12px;color:#333}
+.qnalist tbody td a.on {font-weight:bold}
+.qnalist tbody td .tdin {display:block;font-size:12px;text-align:center;}
+.qnalist tbody td .inp_chk {text-align:center}
+.qnalist tbody td.date {font-size:12px;letter-spacing:0;text-align:center}
+.qnalist tbody td input[type='checkbox'] {margin-right:15px}
+.qnalist tbody td.answer .inner {text-align:left;padding:0 10px 0 60px;margin:30px 0 40px;line-height:2}
+.tbl_vt .ic_new {position:absolute;right:-20px;top:16px;height:12px;width:12px;background:url(../img/ico_new.gif) no-repeat}
+
+.qnaview {line-height:1.5;vertical-align:top;}
+.qnaview dt {position:relative;padding:12px 140px 13px 68px;font-size:13px;font-weight:bold;border-bottom:1px solid #efefef;}
+.qnaview dt .date {position:absolute;top:2px;right:20px;width:110px;height:42px;color:#999;font-size:11px;font-weight:normal;line-height:42px;text-align:right}
+.qnaview dt strong {position:absolute;top:0;left:22px;width:29px;height:44px;line-height:44px}
+.qnaview dd {color:#757271;font-size:12px;line-height:24px}
+.qnaview.q {margin-top:10px;border-top:2px solid #4c4c4c;}
+.qnaview.q dd {padding:24px 30px 40px 70px;}
+.qnaview.a {border-top:1px solid #efefef;}
+.qnaview.a {padding-bottom:20px;border-bottom:1px solid #4c4c4c}
+.qnaview.a dd {padding:24px 30px 10px 70px;}
+
+.bn_group {overflow:hidden;padding-top:15px}
+.bn_group .fl {float:left;}
+.bn_group .fr {float:right;}
+.bn_group .bn {display:inline-block;}
+.bn_group .bn a {display:inline-block;width:58px;height:28px;line-height:30px;font-size:12px;color:#3a3635;text-align:center;vertical-align:middle;border:1px solid #d9d9d9;background-color:#fff;}
+.bn_group .bn a:hover {text-decoration:none;background-color:#f2f3f7}
+
+
+.table_bt {position:relative}
+.table_bt .bn {position:absolute;left:0;top:-13px}
+
+.info_result {margin-top:19px;padding:70px 0 30px;color:#757271;text-align:center;}
+.info_result strong {font-size:18px;font-weight:normal;color:#3a3635}
+.info_result p {margin-top:22px;font-size:13px;line-height:1.4}
+
+/* layout */
+#hyrendContentBody {min-height:100%;margin:-81px 0 -56px;}
+#container {min-height:580px;padding:81px 0 56px;}
+
+/* 점검/에러 */
+.mnStop {font-size:15px;text-align:center;}
+.mnStop h1 {position:relative;margin-bottom:30px;padding-top:163px;font-size:30px;font-size:30px;font-weight:normal;}
+.mnStop h1 .icon {position:absolute;top:60px;left:50%;height:73px;width:57px;margin-left:-28px;background:url('http://file.bugsm.co.kr/wbugs/common/sprite_stop.png') no-repeat;}
+.mnStop p {margin-bottom:30px;color:#757271;line-height:28px;}
+.mnStop em {color:#ff3d33;}
+.mnStop .checktime {overflow:hidden;padding:20px 0;border-top:1px solid #d9d9d9;border-bottom:1px solid #d9d9d9;background-color:#f2f3f7;}
+.mnStop dl {display:inline-block;*display:inline;zoom:1;overflow:hidden;line-height:35px;text-align:left;vertical-align:top;}
+.mnStop dt {position:relative;float:left;padding-left:10px;color:#757271;}
+.mnStop dt .bu {position:absolute;top:15px;left:0;height:2px;width:2px;text-indent:-1000em;background-color:#a7a6a7;}
+.mnStop dd {overflow:hidden;margin-left:100px;}
+.mnStop .btnNormal {display:inline-block;overflow:hidden;cursor:pointer;height:38px;padding:0px 25px 0px 25px;font-size:15px;color:#3a3635;text-align:center;vertical-align:middle;line-height:38px;border:1px solid #b4b2b3;background-color:#fff!important}
+.mnStop .btnNormal:hover {text-decoration:none;background-color:#f2f3f7!important}
+.mnStop .btnNormal:hover,
+.mnStop .btnNormal:active,
+.mnStop .btnNormal:focus {text-decoration:none;}
+
+/* 서비스 긴급 점검 */
+.mnStop.pgStopUrgent h1 .icon {background-position:0 0;}
+
+/* 서비스 정기 점검 */
+.mnStop.pgStopReg h1 .icon {background-position:-70px 0;}
+
+/* 페이지 연결 에러 */
+.mnStop.pg404Error h1 .icon {background-position:-140px 0;}
+
+/* 서비스 진행 에러 */
+.mnStop.pg500Error h1 .icon {background-position:-140px 0;}
+
+/* 서비스 접속 에러 */
+.mnStop.pgAccessNot h1 .icon {background-position:-140px 0;}

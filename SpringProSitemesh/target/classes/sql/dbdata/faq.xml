@@ -1,0 +1,31 @@
+<?xml version="1.0"?>
+<ROWSET>
+ <ROW>
+  <NUM>1</NUM>
+  <CATEGORY>결제/환불</CATEGORY>
+  <TITLE>환불은 어떻게 하나요?</TITLE>
+  <CONTENT>여기는 답변창입니다.</CONTENT>
+  <REGDATE>2015-12-16T00:00:00.000</REGDATE>
+ </ROW>
+ <ROW>
+  <NUM>2</NUM>
+  <CATEGORY>회원가입/변경/탈퇴</CATEGORY>
+  <TITLE>아이디는 못 바꾸나요?</TITLE>
+  <CONTENT>여기는 답변창입니다</CONTENT>
+  <REGDATE>2015-12-16T00:00:00.000</REGDATE>
+ </ROW>
+ <ROW>
+  <NUM>3</NUM>
+  <CATEGORY>음악재생</CATEGORY>
+  <TITLE>재생이 안돼요.</TITLE>
+  <CONTENT>여기는 답변창입니다</CONTENT>
+  <REGDATE>2015-12-16T00:00:00.000</REGDATE>
+ </ROW>
+ <ROW>
+  <NUM>4</NUM>
+  <CATEGORY>결제/환불</CATEGORY>
+  <TITLE>무통장 입금은 안되나요?</TITLE>
+  <CONTENT>여기는 답변창입니다.</CONTENT>
+  <REGDATE>2015-12-16T00:00:00.000</REGDATE>
+ </ROW>
+</ROWSET>

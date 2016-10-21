@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE
+	mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+	"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+
+<mapper namespace="mapperAdminUserInfo">
+	<!-- 1. SQL문 세미콜론 불가능 2. #{} 안의 멤버는 소문자 입력 3. getter가 필요 -->
+	<!-- 뽑기용 -->
+	<select id="selectList" resultType="userInfo">
+		select * from userInfo
+		order
+		by num desc
+	</select>
+	<!-- 입력용 -->
+	<insert id="insertOne" parameterType="userInfo">
+		insert into userInfo
+		values(userInfo_seq.nextval, #{id}, #{pw}, #{phone}, #{nickName},
+		#{adult}, #{grade},
+		#{tagSelect}, #{cash}, #{remainMusic},
+		#{ticketEnd}, sysdate )
+	</insert>
+	<!-- 하나뽑기용 -->
+	<select id="selectOne" parameterType="int" resultType="userInfo">
+		select * from userInfo
+		where num=#{num}
+	</select>
+	<!-- 수정용 -->
+	<update id="updateOne" parameterType="userInfo">
+		update userInfo
+		set
+		id=#{id}, pw=#{pw}, phone=#{phone}, nickName=#{nickName},
+		adult=#{adult}, grade=#{grade},
+		tagSelect=#{tagSelect}, cash=#{cash},
+		remainMusic=#{remainMusic},#{ticketEnd} where num=#{num}
+	</update>
+	<!-- 삭제용 -->
+	<delete id="deleteOne" parameterType="int">
+		delete from userInfo
+		where
+		num=#{num}
+	</delete>
+
+</mapper>

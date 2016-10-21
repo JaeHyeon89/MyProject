@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE
+	mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+	"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+
+<mapper namespace="mapperAdminSong">
+	<!-- 1. SQL문 세미콜론 불가능 2. #{} 안의 멤버는 소문자 입력 3. getter가 필요 -->
+	<!-- 뽑기용 -->
+	<select id="selectList" parameterType="pageBean" resultType="songBean">
+		select * from
+			(
+			select rownum rnum,tt.* from 
+				(select * from song order by num desc)tt
+			) 
+			where 
+				rnum between ${oneStart} and ${oneEnd}
+	</select>
+	<select id="selectListA" parameterType="pageBean" resultType="songBean">
+		select * from
+		(
+		select * from
+			(
+			select rownum rnum,tt.* from 
+				(select * from song order by num desc)tt
+			) 
+			where 
+				rnum between ${oneStart} and ${oneEnd}
+		)
+		where photoSysName ='none' OR sysName ='none' OR youtube IS NULL
+	</select>
+	<!-- 입력용 -->
+	<insert id="insertOne" parameterType="songBean">
+		insert into song
+		values(
+			song_seq.nextval,
+			#{albumName},
+			#{songName},
+			#{artistName},
+			#{lyrics},
+			#{songIntro},
+			#{youtube},
+			#{photoSysName},
+			#{photoOrgName},
+			#{sysName},
+			#{orgName},
+			#{musicStyle},
+			#{themeTag},
+			#{recomCount},
+			#{dateOfIssue},
+			sysdate
+		)
+	</insert>
+	<!-- 하나뽑기용 -->
+	<select id="selectOne" parameterType="int" resultType="songBean">
+		select *
+		from song
+		where num=#{num}
+	</select>
+	<!-- 수정용 -->
+	<update id="updateOne" parameterType="songBean">
+		update song
+		set
+			albumName=#{albumName},
+			songName=#{songName},
+			artistName=#{artistName},
+			lyrics=#{lyrics},
+			songIntro=#{songIntro},
+			youtube=#{youtube},
+			photoSysName=#{photoSysName},
+			photoOrgName=#{photoOrgName},
+			sysName=#{sysName},
+			orgName=#{orgName},
+			musicStyle=#{musicStyle},
+			themeTag=#{themeTag},
+			recomCount=#{recomCount},
+			dateOfIssue=#{dateOfIssue},
+			regDate=sysdate
+		where
+			num=#{num}
+	</update>
+	<!-- 삭제용 -->
+	<delete id="deleteOne" parameterType="int">
+		delete from song
+		where
+		num=#{num}
+	</delete>
+</mapper>

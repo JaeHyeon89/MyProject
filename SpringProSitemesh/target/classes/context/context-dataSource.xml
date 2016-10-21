@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:tx="http://www.springframework.org/schema/tx"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+		http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-4.1.xsd">
+
+
+	<!-- BasicDataSource -->
+	<bean id="dataSource" class="org.apache.commons.dbcp.BasicDataSource">
+		<property name="driverClassName" value="oracle.jdbc.driver.OracleDriver" />
+		<property name="url" value="jdbc:oracle:thin:@127.0.0.1:1521:xe" />
+		<property name="username" value="para" />
+		<property name="password" value="para" />
+		<property name="maxActive" value="500" />
+		<property name="maxIdle" value="100" />
+	</bean>
+
+
+	<!-- SqlSessionFactoryBean -->
+	<bean id="sqlSessionFactoryBean" class="org.mybatis.spring.SqlSessionFactoryBean">
+		<property name="dataSource" ref="dataSource" />
+		<property name="typeAliasesPackage" value="spring.mvc.springPro.bean" />
+		<property name="configLocation" value="classpath:/context/context-mybatis.xml" />
+		<property name="mapperLocations">
+			<array>
+				<value>classpath:/mapper/mapper-adminSearch.xml</value>
+				<value>classpath:/mapper/mapper-adminAlbum.xml</value>
+				<value>classpath:/mapper/mapper-adminSong.xml</value>
+				<value>classpath:/mapper/mapper-mybatis.xml</value>
+				<value>classpath:/mapper/mapper-song.xml</value>
+				<value>classpath:/mapper/mapper-customer.xml</value>
+				<value>classpath:/mapper/mapper-userInfo.xml</value>
+				<value>classpath:/mapper/mapper-userTheme.xml</value>
+				<value>classpath:/mapper/mapper-myPage.xml</value>
+				<value>classpath:/mapper/mapper-userAlbum.xml</value>
+				<value>classpath:/mapper/mapper-buy.xml</value>
+				<value>classpath:/mapper/mapper-search.xml</value>
+				<value>classpath:/mapper/mapper-adminTheme.xml</value>
+				<value>classpath:/mapper/mapper-adminGenre.xml</value>
+				<value>classpath:/mapper/mapper-adminArtist.xml</value>
+				<value>classpath:/mapper/mapper-adminUserInfo.xml</value>
+				<value>classpath:/mapper/mapper-adminInfo.xml</value>
+				<value>classpath:/mapper/mapper-adminFaq.xml</value>
+				<value>classpath:/mapper/mapper-adminUserQuestion.xml</value>
+			</array>
+		</property>
+	</bean>
+
+
+	<!-- SqlSessionTemplate -->
+	<bean id="sqlSessionTemplate" class="org.mybatis.spring.SqlSessionTemplate">
+		<constructor-arg name="sqlSessionFactory" ref="sqlSessionFactoryBean" />
+	</bean>
+
+
+	<!-- DataSourceTransactionManager -->
+	<bean id="transactionManager"
+		class="org.springframework.jdbc.datasource.DataSourceTransactionManager">
+		<property name="dataSource" ref="dataSource" />
+	</bean>
+
+	<!-- transactionManager을 스프링에 연결, 스프링 관련 자원 다사용하기위함 -->
+	<tx:annotation-driven transaction-manager="transactionManager" />
+
+</beans>

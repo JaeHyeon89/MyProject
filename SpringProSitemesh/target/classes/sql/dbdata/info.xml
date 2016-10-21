@@ -1,0 +1,31 @@
+<?xml version="1.0"?>
+<ROWSET>
+ <ROW>
+  <NUM>1</NUM>
+  <INFOTYPE>공지사항</INFOTYPE>
+  <TITLE>결제 좀 많이 하세요</TITLE>
+  <CONTENT>여기는 공지사항합니다</CONTENT>
+  <REGDATE>2015-12-16T00:00:00.000</REGDATE>
+ </ROW>
+ <ROW>
+  <NUM>2</NUM>
+  <INFOTYPE>공지사항</INFOTYPE>
+  <TITLE>환불충들 보아라</TITLE>
+  <CONTENT>여기는 공지사항합니다</CONTENT>
+  <REGDATE>2015-12-16T00:00:00.000</REGDATE>
+ </ROW>
+ <ROW>
+  <NUM>3</NUM>
+  <INFOTYPE>이벤트</INFOTYPE>
+  <TITLE>팬 사인회 이벤트!</TITLE>
+  <CONTENT>여기는 이벤트입니다</CONTENT>
+  <REGDATE>2015-12-16T00:00:00.000</REGDATE>
+ </ROW>
+ <ROW>
+  <NUM>4</NUM>
+  <INFOTYPE>이벤트</INFOTYPE>
+  <TITLE>추첨 이벤트 당첨자 발표!</TITLE>
+  <CONTENT>여기는 이벤트입니다</CONTENT>
+  <REGDATE>2015-12-16T00:00:00.000</REGDATE>
+ </ROW>
+</ROWSET>

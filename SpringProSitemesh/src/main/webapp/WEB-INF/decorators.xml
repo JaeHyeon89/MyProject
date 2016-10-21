@@ -1,0 +1,65 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+
+<decorators defaultdir="/WEB-INF/views">
+
+
+	<!-- page:applyDecorator -->
+	<!-- 정규 -->
+	<decorator name="top" page="layout/top.jsp" />
+	<decorator name="left" page="layout/left.jsp" />
+	<decorator name="admin_top" page="layout/admin_top.jsp" />
+	<decorator name="admin_left" page="layout/admin_left.jsp" />
+	<decorator name="resultAlbumList" page="adminJK/search/resultAlbumList.jsp" />
+	<decorator name="resultSongList" page="adminJK/search/resultSongList.jsp" />
+	<decorator name="resultArtistList" page="adminJK/search/resultArtistList.jsp" />
+	<decorator name="resultUserList" page="adminJK/search/resultUserList.jsp" />
+	<!-- 재현 -->
+	<decorator name="logTop" page="JH/02_log/logTop.jsp" />
+
+
+
+
+	<!-- decorator:body -->
+	<excludes>
+		<pattern>/popup/*</pattern>
+		<!-- 은수 -->
+		<pattern>/phoneChargeForm</pattern>
+		<pattern>/cashCertifyCom</pattern>
+		<pattern>/cardChargeForm</pattern>
+		<pattern>/cashCardCharge</pattern>
+		<pattern>/cashPhoneCharge</pattern>
+		<pattern>/tiCertifyCom</pattern>
+		<pattern>/tiPhoneCharge</pattern>
+		<pattern>/tiCardCharge</pattern>
+		<pattern>/songChargeForm*</pattern>
+		<pattern>/albumChargeForm</pattern>
+		<pattern>/cashMusicCharge</pattern>
+		<pattern>/tiMusicCharge</pattern>
+		<pattern>/goTerms*</pattern>
+		<!-- 진광 -->
+		<pattern>/lyrics*</pattern>
+		<pattern>/checkPlay</pattern>
+		<pattern>/musicPlayer*</pattern>
+		<pattern>/recommend*</pattern>
+		<pattern>/starRating*</pattern>
+		<pattern>/muvi*</pattern>
+		<pattern>/songOnePlayer*</pattern>
+		<pattern>/kwang/info/photo*</pattern>
+		<!-- 정규 -->
+		<pattern>/adminJK/*/*/updateOne*</pattern>
+		<pattern>/adminJK/*/*/insertOne*</pattern>
+		<pattern>/adminJK/*/*/selectOne*</pattern>
+		<pattern>/adminJK/*/*/comment/*</pattern>
+		<pattern>/adminJK/*/*/selectListA*</pattern>
+
+	</excludes>
+
+	<decorator name="layout" page="layout/layout.jsp">
+		<pattern>/*</pattern>
+	</decorator>
+
+	<decorator name="adminJK" page="layout/admin_layout.jsp">
+		<pattern>/adminJK/*</pattern>
+	</decorator>
+
+</decorators>

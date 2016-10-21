@@ -1,0 +1,132 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE
+	mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+	"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+
+<mapper namespace="mapperAdminAlbum">
+	<!-- 1. SQL문 세미콜론 불가능 2. #{} 안의 멤버는 소문자 입력 3. getter가 필요 -->
+	<!-- 뽑기용 -->
+	<select id="selectList" parameterType="pageBean" resultType="albumBean">
+		select * from
+		(
+		select rownum rnum,tt.* from
+		(select * from album order by num desc)tt
+		)
+		where
+		rnum between ${oneStart} and ${oneEnd}
+	</select>
+	<select id="selectListA" parameterType="pageBean" resultType="albumBean">
+		select * from
+		(
+		select * from
+		(
+		select rownum rnum,tt.* from
+		(select * from album order by num desc)tt
+		)
+		where
+		rnum between ${oneStart} and ${oneEnd}
+		)
+		where photoSysName ='none'
+	</select>
+
+	<!-- 입력용 -->
+	<insert id="insertOne" parameterType="albumBean">
+		insert into album
+		values(
+		album_seq.nextval,
+		#{albumName},
+		#{artistName},
+		#{photoSysName},
+		#{photoOrgName},
+		#{sysName},
+		#{orgName},
+		#{musicStyle},
+		#{albumIntro},
+		#{recomCount},
+		#{totalCount},
+		#{avgCount},
+		#{dateOfIssue},
+		sysdate
+		)
+	</insert>
+	<!-- 하나뽑기용 -->
+	<select id="selectOne" parameterType="int" resultType="albumBean">
+		select *
+		from album
+		where num=#{num}
+	</select>
+	<!-- 수정용 -->
+	<update id="updateOne" parameterType="albumBean">
+		update album
+		set
+		albumName=#{albumName},
+		artistName=#{artistName},
+		photoSysName=#{photoSysName},
+		photoOrgName=#{photoOrgName},
+		sysName=#{sysName},
+		orgName=#{orgName},
+		musicStyle=#{musicStyle},
+		albumIntro=#{albumIntro},
+		recomCount=#{recomCount},
+		totalCount=#{totalCount},
+		avgCount=#{avgCount},
+		dateOfIssue=#{dateOfIssue},
+		regDate=sysdate
+		where
+		num=#{num}
+	</update>
+	<!-- 삭제용 -->
+	<delete id="deleteOne" parameterType="int">
+		delete from album
+		where
+		num=#{num}
+	</delete>
+
+
+	<!-- 코멘트영역 -->
+	<!-- 뽑기용 -->
+	<select id="commentSelectList" parameterType="int" resultType="albumCommentBean">
+		select * from
+		albumComment
+		where 
+		albumNum=#{albumNum}
+		order by num desc
+	</select>
+	
+	<!-- 입력용 -->
+	<insert id="commentInsertOne" parameterType="albumCommentBean">
+		insert into
+		albumComment
+		values(
+		albumComment_seq.nextval,
+		#{albumNum},
+		#{writer},
+		#{content},
+		sysdate
+		)
+	</insert>
+
+	<!-- 수정용 -->
+	<update id="commentUpdateOne" parameterType="albumCommentBean">
+		update albumComment
+		set
+		albumNum=#{albumNum},
+		writer=#{writer},
+		content=#{content},
+		where
+		num=#{num}
+	</update>
+	<!-- 삭제용 -->
+	<delete id="commentDeleteOne" parameterType="int">
+		delete from
+		albumComment
+		where
+		num=#{num}
+	</delete>
+
+
+
+
+</mapper>

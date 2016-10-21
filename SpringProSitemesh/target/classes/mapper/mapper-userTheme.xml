@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE
+	mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+	"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+	
+	
+	<mapper namespace="mapperUserTheme">
+		<insert id="insertTheme" parameterType="userTheme">
+			insert into userTheme values
+			(userTheme_seq.nextval, #{userNum}, #{genre}, #{favorTheme}, sysdate)
+		</insert>
+		
+		<update id="updateTheme" parameterType="userTheme">
+			update userTheme set 
+				genre = #{genre}, favorTheme = #{favorTheme} 
+					where userNum = #{userNum}
+		</update>
+		
+	</mapper>
+	
+	
+	

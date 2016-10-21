@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE
+	mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+	"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+	
+	
+	<mapper namespace="mapperMypage">
+		<select id="getBuyList" resultType="buyList" parameterType="userInfo">
+			select * from userBuyList where num = #{num} order by num desc
+		</select>	
+		
+		
+<!-- 		<select id="getSongBuyList" resultType="buyList" parameterType="userInfo"> -->
+<!-- 			select * from userBuyList where num = #{num} and classify='곡 구매'  -->
+<!-- 		</select> -->
+		
+		<select id="myBuyedSong" resultType="songBean" parameterType="songBean">
+			select * from song where num = #{num}
+		</select>
+		
+		
+		
+		
+		<insert id="refundCash" parameterType="buyList">
+			insert into userBuyList values(
+				#{num}, #{classify}, #{cashCharge}, null, null, null, null, null, sysdate
+			)
+		</insert>
+		
+	</mapper>

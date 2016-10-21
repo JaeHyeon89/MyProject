@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+
+
+	
+<!DOCTYPE
+	mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+	"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+	
+	<mapper namespace="mapperBuy">
+		<select id="phoneSelOne" parameterType="phoneBean" resultType="phoneBean">
+			select * from phone where tong=#{tong} and phoneNum=#{phoneNum} 
+										and name=#{name} and regNum=#{regNum}
+		</select>
+		
+		<update id="updateCash" parameterType="userInfo">
+			update userInfo set cash=#{cash} where id=#{id}
+		</update>
+		
+		<update id="updatePhone" parameterType="phoneBean">
+			update phone set useMoney=#{useMoney} where num=#{num}
+		</update>
+		
+		<select id="userSelOne" parameterType="java.lang.String" resultType="userInfo">
+			select * from userInfo where id=#{id}
+		</select>
+		
+		<insert id="insertBuyPhoneList" parameterType="userBuyList">
+			insert into userBuyList(num, classify, cashCharge, chargeWay, regDate) 
+				values(#{num}, #{classify}, #{cashCharge}, #{chargeWay}, sysdate)
+		</insert>
+		
+		<select id="bankSelOne" parameterType="bankBean" resultType="bankBean">
+			select * from bank where bankName=#{bankName} and cardNum=#{cardNum} and cvnNum=#{cvnNum}
+		</select>
+		
+		<update id="updateBank" parameterType="bankBean">
+			update bank set useMoney=#{useMoney} where num=#{num}
+		</update>
+		
+		<insert id="insertTiBuyList" parameterType="userBuyList">
+			insert into userBuyList(num, classify, ticket, ticketEnd, chargeWay, regDate)
+				values(#{num}, #{classify}, #{ticket}, #{ticketEnd}, #{chargeWay}, sysdate)
+		</insert>
+		
+		<update id="updateTicket" parameterType="userInfo">
+			update userInfo set remainMusic=#{remainMusic}, ticketEnd=#{ticketEnd} where id=#{id}
+		</update>
+		
+		<select id="selBuyListOne" parameterType="userBuyList" resultType="userBuyList">
+			select * from userBuyList where buyMusic=#{buyMusic} and num=#{num}
+		</select>
+		
+		<select id="selectOne" parameterType="java.lang.Integer" resultType="songBean">
+			select * from song where num=#{num}
+		</select>
+		
+		<update id="insertTiBuyListMusic" parameterType="userBuyList">
+			insert into userBuyList(num, classify, chargeWay, buyMusic, regDate)
+				values(#{num}, #{classify}, #{chargeWay}, #{buyMusic}, sysdate)
+		</update>
+		
+		<select id="albumSelOne" parameterType="java.lang.Integer" resultType="albumBean">
+			select * from album where num=#{num}
+		</select>
+		
+		<select id="selSongList" parameterType="albumBean" resultType="songBean">
+			select * from song where albumName=#{albumName} and artistName=#{artistName}
+		</select>
+	</mapper>

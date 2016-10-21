@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE
+	mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+	"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+
+<mapper namespace="mapperAdminUserQuestion">
+	<!-- 1. SQL문 세미콜론 불가능 2. #{} 안의 멤버는 소문자 입력 3. getter가 필요 -->
+	<!-- 뽑기용 -->
+	<select id="selectList" parameterType="pageBean" resultType="userQuestion">
+		select * from
+			(
+			select rownum rnum,tt.* from 
+				(select * from userQuestion order by regdate desc)tt
+			) 
+			where 
+				rnum between ${oneStart} and ${oneEnd}
+	</select>
+	<select id="selectListA" parameterType="pageBean" resultType="userQuestion">
+		select * from
+		(select * from
+			(
+			select rownum rnum,tt.* from 
+				(select * from userQuestion order by regdate desc)tt
+			) 
+			where 
+				rnum between ${oneStart} and ${oneEnd}
+		)
+		where answer=0
+	</select>
+	<select id="selectList2" resultType="userQuestion">
+			select * from userQuestion order by regdate desc
+	</select>
+	<!-- 입력용 -->
+	<insert id="insertOne" parameterType="userQuestion">
+		insert into userQuestion
+		values(
+			userQuestion_seq.nextval,
+			#{answer},
+			#{writer},
+			#{category},
+			#{title},
+			#{content},
+			sysdate
+		)
+	</insert>
+	<!-- 하나뽑기용 -->
+	<select id="selectOne" parameterType="int" resultType="userQuestion">
+		select *
+		from userQuestion
+		where num=#{num}
+	</select>
+	<!-- 수정용 -->
+	<update id="updateOne" parameterType="userQuestion">
+		update userQuestion
+		set
+			answer=#{answer},
+			writer=#{writer},
+			category=#{category},
+			title=#{title},
+			content=#{content}
+		where
+			num=#{num}
+	</update>
+	<!-- 삭제용 -->
+	<delete id="deleteOne" parameterType="int">
+		delete from userQuestion
+		where
+		num=#{num}
+	</delete>
+</mapper>

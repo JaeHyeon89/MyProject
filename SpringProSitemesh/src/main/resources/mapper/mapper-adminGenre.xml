@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE
+	mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+	"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+
+<mapper namespace="mapperAdminGenre">
+	<!-- 1. SQL문 세미콜론 불가능 2. #{} 안의 멤버는 소문자 입력 3. getter가 필요 -->
+	<!-- 뽑기용 -->
+	<select id="selectList" parameterType="pageBean" resultType="genreList">
+		select * from
+			(
+			select rownum rnum,tt.* from 
+				(select * from genre order by num desc)tt
+			) 
+			where 
+				rnum between ${oneStart} and ${oneEnd}
+	</select>
+	<select id="selectList2" resultType="genreList">
+		select * from genre order by num desc
+	</select>
+	<!-- 입력용 -->
+	<insert id="insertOne" parameterType="genreList">
+		insert into genre
+		values(
+			genre_seq.nextval,
+			#{genre}
+		)
+	</insert>
+	<!-- 하나뽑기용 -->
+	<select id="selectOne" parameterType="int" resultType="genreList">
+		select *
+		from genre
+		where num=#{num}
+	</select>
+	<!-- 수정용 -->
+	<update id="updateOne" parameterType="genreList">
+		update genre
+		set
+			genre=#{genre}
+		where
+			num=#{num}
+	</update>
+	<!-- 삭제용 -->
+	<delete id="deleteOne" parameterType="int">
+		delete from genre
+		where
+		num=#{num}
+	</delete>
+</mapper>

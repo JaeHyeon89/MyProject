@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+
+
+<!DOCTYPE
+	mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+	"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+	
+	<mapper namespace="mapperSearch">
+		<select id="selSongList" parameterType="java.lang.String" resultType="songBean">
+			select * from song where songName like '%'||#{value}||'%' order by num desc
+		</select>
+		
+		<select id="selAlbumList" parameterType="java.lang.String" resultType="albumBean">
+			select * from album where albumName like '%'||#{value}||'%' order by num desc
+		</select>
+		
+		<select id="selArtistList" parameterType="java.lang.String" resultType="artistBean">
+			select * from artist where artistName like '%'||#{value}||'%' order by num desc
+		</select>
+		
+		<select id="songSearch" parameterType="pageBean" resultType="songBean">
+			select * from(select rownum rnum,tt.* from (select * from song order by regdate desc)tt)
+				<where>
+					<foreach collection="search" item="item" open="(" close=")" separator="or"> 
+						songName like '%'||#{item}||'%' 
+						 or albumName like '%'||#{item}||'%' 
+						 or artistName like '%'||#{item}||'%'
+					</foreach>
+				and rnum between ${oneStart} and ${oneEnd}
+				</where>
+		</select>
+		
+		<select id="albumSearch" parameterType="pageBean" resultType="albumBean">
+			select * from(select rownum rnum,tt.* from (select * from album order by regdate desc)tt)
+						<where>
+							<foreach collection="search" item="item" open="(" close=")" separator="or">
+ 							albumName like '%'||#{item}||'%' 
+							 or artistName like '%'||#{item}||'%'
+							 </foreach>
+						 	and rnum between ${oneStart} and ${oneEnd}
+						 </where>
+		</select>
+		
+		<select id="artistSearch" parameterType="pageBean" resultType="artistBean" >
+			select * from(select rownum rnum,tt.* from (select * from artist order by debut desc)tt)
+						<where>
+							<foreach collection="search" item="item" open="(" close=")" separator="or">
+								 artistName like '%'||#{item}||'%'
+							</foreach>
+						and rnum between ${oneStart} and ${oneEnd}
+						</where>
+		</select>
+	</mapper>

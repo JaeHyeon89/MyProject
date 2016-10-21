@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE
+	mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+	"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+	
+	
+	<mapper namespace="mapperUserAlbum">
+	
+		<!-- 회원가입시 자동 생성 -->
+		<insert id="insertAlbum" parameterType="userInfo">
+			insert into userAlbum values
+			(userInfo_seq.currval, '내 앨범 1번', '내 앨범 2번', '내 앨범 3번',
+				 null, null, null)
+		</insert>
+		
+		
+		<!-- 마이 앨범 불러오기 -->
+		<select id="selectAlbum" parameterType="userInfo" resultType="userAlbum">
+			select * from userAlbum
+					where userNum = #{num}
+		</select>
+		
+		<!-- 마이 앨범 수정하기(곡 추가 및 삭제) -->
+		<update id="updateAlbum" parameterType="updateAlbum" >
+			update userAlbum set
+				${updateTarget} = #{updateContent}
+					where userNum = #{userNum}
+		</update>
+		
+		
+		<!-- 마이앨범에 곡 리스트 불러오기 -->
+		<select id="myAlbumSongList" parameterType="userAlbum" resultType="songBean">
+			select * from song
+			<where>
+				<foreach collection="songArray" item="item" separator="or"  >
+					num = #{item}				
+				</foreach>
+			</where>
+		</select>
+		
+		
+		
+	</mapper>
+	
+	
+	
